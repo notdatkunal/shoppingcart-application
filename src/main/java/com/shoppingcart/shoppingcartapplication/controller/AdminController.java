@@ -1,8 +1,6 @@
 package com.shoppingcart.shoppingcartapplication.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,4 +13,11 @@ public class AdminController {
         // return the list of merchants that are approved by admin
         return "hello";
     }
+
+    @PutMapping("/merchants/{Id}")
+    public String deactivateMerchants(@PathVariable Integer id){
+        // return the list of merchants that are approved by admin
+        return "merchant deactivated";
+    }
+
 }
