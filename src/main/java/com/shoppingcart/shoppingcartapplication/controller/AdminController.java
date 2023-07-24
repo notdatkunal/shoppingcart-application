@@ -14,9 +14,10 @@ public class AdminController {
         return "hello";
     }
 
-    @PutMapping("/merchants/{Id}")
+    @GetMapping("joker/{id}")
     public String deactivateMerchants(@PathVariable Integer id){
         // return the list of merchants that are approved by admin
+        System.out.println(id);
         return "merchant deactivated";
     }
 
