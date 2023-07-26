@@ -10,11 +10,11 @@ import lombok.NoArgsConstructor;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String name;
     private String category;
-    private double price;
-    private int quantity;
+    private Double price;
+    private Integer quantity;
     @ManyToOne
     private Cart cart;
     @OneToOne

@@ -13,11 +13,11 @@ import java.util.List;
 public class Merchant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String name;
     private String email;
     private String password;
-    private long mobilenumber;
+    private Long mobilenumber;
     private String status;
     @OneToMany
     private List<Product>Products;

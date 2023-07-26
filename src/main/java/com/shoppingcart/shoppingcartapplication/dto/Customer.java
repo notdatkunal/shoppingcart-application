@@ -13,13 +13,13 @@ public class Customer {
     private Cart cart;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String name;
     @Column(unique = true)
     private String email;
     private String password;
     @Column(unique = true)
-    private long mobilenumber;
+    private Long mobilenumber;
     private String status;
 
 

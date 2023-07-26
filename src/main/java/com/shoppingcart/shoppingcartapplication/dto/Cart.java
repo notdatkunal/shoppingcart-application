@@ -13,8 +13,8 @@ public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private double totalPrice;
+    private Integer id;
+    private Double totalPrice;
     @OneToOne
     private Customer customer;
     @OneToMany
