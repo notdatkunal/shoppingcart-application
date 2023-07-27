@@ -10,7 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/merchant")
 public class MerchantController {
     @Autowired
-    private MerchantService merchantService;
+    private final MerchantService merchantService;
+
+    public MerchantController(MerchantService merchantService) {
+        this.merchantService = merchantService;
+    }
+
     @GetMapping
     public String merchant(){return "this is merchant";}
 }
