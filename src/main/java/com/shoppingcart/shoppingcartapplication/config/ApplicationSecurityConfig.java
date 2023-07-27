@@ -1,4 +1,4 @@
-package com.shoppingcart.shoppingcartapplication.security;
+package com.shoppingcart.shoppingcartapplication.config;
 
 
 import org.springframework.context.annotation.Bean;
@@ -21,8 +21,7 @@ public class ApplicationSecurityConfig  {
                         .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults())
-
-                .securityMatcher("/css/**", "/js/**", "/img/**", "/lib/**", "/favicon.ico","","index");
+                .securityMatcher("/admin/*","/customer/*","/merchant/*");
 
         return http.build();
     }

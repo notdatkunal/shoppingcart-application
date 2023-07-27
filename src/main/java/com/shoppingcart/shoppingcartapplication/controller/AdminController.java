@@ -1,22 +1,25 @@
 package com.shoppingcart.shoppingcartapplication.controller;
 
 import com.shoppingcart.shoppingcartapplication.dto.Admin;
+import com.shoppingcart.shoppingcartapplication.dto.Merchant;
 import com.shoppingcart.shoppingcartapplication.service.AdminService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/admin")
 public class AdminController {
 
     @Autowired
     private final AdminService adminService;
 
-    public AdminController(AdminService adminService) {
-        this.adminService = adminService;
-    }
+
 
     @GetMapping
     public void admin(){}
@@ -32,9 +35,9 @@ public class AdminController {
     }
 
     @GetMapping("/merchants")
-    public String getMerchants(){
+    public ResponseEntity<List<Merchant>> getMerchants(){
         // return the list of merchants that are not approved by admin
-        return "hello";
+        return adminService.getMerchants();
     }
 
     @GetMapping("merchant/{id}")

@@ -18,7 +18,7 @@ public class Merchant {
     private String email;
     private String password;
     private Long mobilenumber;
-    private String status;
+    private Boolean status;
     @OneToMany
     private List<Product>Products;
     @ManyToOne
