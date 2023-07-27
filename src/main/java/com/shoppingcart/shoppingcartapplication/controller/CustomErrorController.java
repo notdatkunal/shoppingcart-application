@@ -18,5 +18,6 @@ public class CustomErrorController implements ErrorController {
     @GetMapping
     public void handleError(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("error.html").forward(request,response);
+
     }
 }
