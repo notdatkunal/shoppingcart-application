@@ -21,6 +21,7 @@ public class ApplicationSecurityConfig  {
                         .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults())
+
                 .securityMatcher("/css/**", "/js/**", "/img/**", "/lib/**", "/favicon.ico","","index");
 
         return http.build();

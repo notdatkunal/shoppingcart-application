@@ -13,9 +13,11 @@ import java.util.List;
 @RequestMapping("/admin")
 public class AdminController {
 
+    @GetMapping
+    public void admin(){}
     @Autowired
     private  AdminRepository adminRepository;
-    @GetMapping
+    @PostMapping
     public boolean saveAdmin(@RequestBody Admin admin){
         // this will save admin
         // this is to create new admin account
