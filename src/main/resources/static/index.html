@@ -13,16 +13,16 @@
         <label for="login" class="tablabel">LOG IN</label>
         <div class="tab">
             <h2>Log In</h2>
-            <form action="" method="post">
+            <form action="/login" method="post">
                 <label for="email">email</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" required>
                 <label for="password">password</label>
-                <input type="password" name="password" id="password">
-                <label for="login">Account type</label>
-                <select name="mode" id="loginType">
+                <input type="password" name="password" id="password" required>
+                <label for="loginType">Account type</label>
+                <select name="mode" id="loginType" required>
                     <option value="admin">ADMIN</option>
                     <option value="merchant">MERCHANT</option>
-                    <option value="customer">CUSTOMER</option>
+                    <option value="customer" selected>CUSTOMER</option>
                 </select>
                 <button type="submit">submit</button>
             </form>
@@ -32,7 +32,20 @@
         <label for="signup" class="tablabel">SIGN UP</label>
         <div class="tab">
             <h2>Sign Up</h2>
-            <form action="" method="post">
+            <form action="/signup" method="post">
+                <label for="name">name</label>
+                <input type="text" name="name" id="name" required>
+                <label for="email">email</label>
+                <input type="email" name="email" id="email" required>
+                <label for="password">password</label>
+                <input type="password" name="password" id="password" required>
+                <label for="signupType">Account type</label>
+                <select name="mode" id="signupType" required>
+                    <option value="admin" >ADMIN</option>
+                    <option value="merchant">MERCHANT</option>
+                    <option value="customer" selected>CUSTOMER</option>
+                </select>
+                <button type="submit">submit</button>
             </form>
         </div>
     </div>
