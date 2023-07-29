@@ -2,26 +2,29 @@ package com.shoppingcart.shoppingcartapplication.dto;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import java.util.ArrayList;
 import java.util.List;
 
 
 
 @Entity
 @Data
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class Merchant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
+    private final String name;
     @Column(unique = true)
-    private String email;
-    private String password;
-    private Long mobilenumber;
-    private Boolean status;
+    private final String email;
+    private final String password;
+    @Column(unique = true,nullable = false)
+    private final Long mobilenumber;
+    @Column(name="merchant_status",nullable = false)
+    private Boolean status = false;
     @OneToMany
-    private List<Product>Products;
+    private List<Product>Products = new ArrayList<>();
     @ManyToOne
     private Admin admin;
 

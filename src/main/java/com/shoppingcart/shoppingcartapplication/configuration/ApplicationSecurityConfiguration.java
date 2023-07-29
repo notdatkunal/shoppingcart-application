@@ -1,4 +1,4 @@
-package com.shoppingcart.shoppingcartapplication.config;
+package com.shoppingcart.shoppingcartapplication.configuration;
 
 
 import org.springframework.context.annotation.Bean;
@@ -12,16 +12,18 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true,securedEnabled = true,jsr250Enabled = true)
-public class ApplicationSecurityConfig  {
+public class ApplicationSecurityConfiguration  {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests((authz) -> authz
-                        .anyRequest().authenticated()
+        		.csrf(csrf->csrf.disable())
+                .authorizeHttpRequests((auth) -> {
+                		auth.requestMatchers("/*","/login/**","/signup/**").permitAll();
+                        auth.anyRequest().authenticated();}
                 )
-                .httpBasic(withDefaults())
-                .securityMatcher("/admin/*","/customer/*","/merchant/*");
+                .httpBasic(withDefaults());
+                
 
         return http.build();
     }

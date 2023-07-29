@@ -3,7 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+    
+    body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+    padding-right: 20%;
+    padding-left: 20%;
+    background-color: #ccc;
+    }
+    
+    .mytabs{
+    
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:space-between;
+        align-content:stretch;
+        flex-direction:row;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 25px;
+    }
+    
+    .mytabs input[type="radio"]{
+        display: none;
+    }
+    .mytabs .tablabel {
+        padding: 25px;
+        background: #e2e2e2;
+        font-weight: bold	;
+    }
+    select{
+        display: block;
+        margin-bottom: 1rem;
+        
+    }
+    
+    
+    .mytabs .tab{
+        width: 100%;
+        padding: 20px;
+        background-color: #fff;
+        order: 1;
+        display: none;
+    }
+    .mytabs .tab h2 {
+    
+    
+        font-size: 2em;
+    }
+    .mytabs input[type="radio"]:checked +.tablabel + .tab{
+    
+        display: block;
+    
+    
+    }
+    .mytabs input[type="radio"]:checked +.tablabel{
+    
+        
+        background-color: lightblue;
+        flex:1;
+        
+        
+        
+    }
+    
+    
+    form{
+    
+      padding: 7%;
+      border: 1px solid black;
+        width:40%;
+      align-content: center;
+      margin: 0 auto;
+    font-family: sans-serif;
+    align-content: center;
+    
+    
+    }
+    
+    form > label {
+        margin :0 auto;
+        display:block;
+        margin-top: 10px;
+    }
+    input{
+        margin :0 auto;
+        
+        margin-bottom: 10px;
+    
+    }
+    input:hover{
+    background-color: lime;
+    }
+    button {
+    margin :0 auto;
+    background-color: lightblue;
+    }
+    button:hover{
+        background-color: lime;
+    }
+    h2 {
+        margin :0 auto;
+        font-family: fantasy;
+        font-weight: 100;
+        font-stretch: wider;
+        
+    }
+    
+    
+    </style>
 </head>
 <body>
 <h1>something went wrong :( </h1>

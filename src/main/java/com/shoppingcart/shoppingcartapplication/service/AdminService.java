@@ -3,6 +3,8 @@ package com.shoppingcart.shoppingcartapplication.service;
 import com.shoppingcart.shoppingcartapplication.dto.Merchant;
 import com.shoppingcart.shoppingcartapplication.repository.AdminRepository;
 import com.shoppingcart.shoppingcartapplication.repository.MerchantRepository;
+import com.shoppingcart.shoppingcartapplication.service.exception.IdNotFoundException;
+
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -35,4 +37,23 @@ public class AdminService {
         }
         return ResponseEntity.ok(reqests);
     }
+
+
+	public ResponseEntity<Merchant> activateMerchants(Integer id) {
+		var merchantOptional = merchantRepository.findById(id);
+		if(!merchantOptional.isPresent()) 
+			throw new IdNotFoundException();
+		var merchant = merchantOptional.get();	
+		merchant.setStatus(true);
+		merchantRepository.save(merchant);
+		return ResponseEntity.ok(merchant);	
+	}
+
+
+	public ResponseEntity<Merchant> deleteMerchants(Integer id) {
+		var merchant = merchantRepository.findById(id);
+		merchantRepository.delete(merchant.get());
+		return ResponseEntity.ok(merchant.get());
+		
+	}
 }

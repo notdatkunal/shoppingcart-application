@@ -3,24 +3,28 @@ package com.shoppingcart.shoppingcartapplication.dto;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class Customer {
     @OneToOne
-    private Cart cart;
+    private final Cart cart = new Cart(this);
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
+    private final String name;
     @Column(unique = true)
-    private String email;
-    private String password;
+    private final String email;
+    @Column(nullable = false)
+    private final String password;
     @Column(unique = true)
-    private Long mobilenumber;
-    private String status;
+    private final Long mobilenumber;
+    @Column(name = "customer_status",nullable = false)
+    private Boolean status = true;
+    // if kept true then user is active
+    
 
 
 

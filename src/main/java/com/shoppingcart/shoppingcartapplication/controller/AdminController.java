@@ -1,6 +1,6 @@
 package com.shoppingcart.shoppingcartapplication.controller;
 
-import com.shoppingcart.shoppingcartapplication.dto.Admin;
+
 import com.shoppingcart.shoppingcartapplication.dto.Merchant;
 import com.shoppingcart.shoppingcartapplication.service.AdminService;
 import lombok.AllArgsConstructor;
@@ -21,30 +21,26 @@ public class AdminController {
 
 
 
-    @GetMapping
-    public void admin(){}
+    
 
-    @PostMapping
-    public boolean saveAdmin(@RequestBody Admin admin){
-        // this will save admin
-        // this is to create new admin account
-
-
-        return true;
-        //return new ResponseEntity();
-    }
+    
 
     @GetMapping("/merchants")
     public ResponseEntity<List<Merchant>> getMerchants(){
-        // return the list of merchants that are not approved by admin
+        
         return adminService.getMerchants();
     }
 
-    @GetMapping("merchant/{id}")
-    public String deactivateMerchants(@PathVariable Integer id){
-        // return the list of merchants that are approved by admin
-        System.out.println(id);
-        return "merchant deactivated";
+    @PutMapping("merchants/{id}")
+    public ResponseEntity<Merchant> activateMerchants(@PathVariable Integer id){
+        
+        
+        return adminService.activateMerchants(id);
+    }
+    
+    @DeleteMapping("merchants/{id}")
+    public ResponseEntity<Merchant> deleteMerchants(@PathVariable Integer id) {
+    	return adminService.deleteMerchants(id);
     }
 
 }
